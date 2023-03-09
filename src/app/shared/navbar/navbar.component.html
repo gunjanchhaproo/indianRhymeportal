@@ -1,0 +1,27 @@
+<nav class="bg-white ms-3" style="height: 50px;">
+    <div class="navbar-expand-md">
+        <div class="row justify-content-between" id="nav">
+            <ul class="navbar-nav col-md-8" ngbNav #nav="ngbNav" [(activeId)]="active">
+                <li [ngbNavItem]="1"><a class="nav-link text-warning fw-bolder mx-3 mt-2 text-warning" style="font-size: 24px;" ngbNavLink>Home</a>
+                <ng-template ngbNavContent>
+                    <app-introduction></app-introduction>
+                </ng-template></li>
+                <li><a class="nav-link text-warning fw-bolder mx-3 mt-2" style="font-size: 24px;">About Us</a></li>
+                <li><a class="nav-link text-warning fw-bolder mx-3 mt-2" style="font-size: 24px;">Blog</a></li>
+                <li><a class="nav-link text-warning fw-bolder mx-3 mt-2" style="font-size: 24px;">Books</a></li>
+                <!-- <li><a class="nav-link text-warning fw-bolder mx-3 mt-2" style="font-size: 24px;">Libraries</a></li> -->
+                <li [ngbNavItem]="2"><a class="nav-link text-warning fw-bolder mx-3 mt-2" style="font-size: 24px;" ngbNavLink>Poetry</a>
+                <ng-template ngbNavContent>
+                    <app-viewpoetry></app-viewpoetry>
+                </ng-template></li>
+            </ul>
+            <div class="row col-md-4">
+                <button type="submit" class="btn btn-white col-md-3 ms-5 fw-bolder text-warning" style="font-size: 24px;"><i class="fa fa-user"></i> 
+                    Profile
+                </button>
+                <a href=""  class="btn btn-white col-md-3 ms-4 fw-bolder text-warning" style="font-size: 24px;"><i class="fa fa-user"></i>Logout!</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div [ngbNavOutlet]="nav"></div>

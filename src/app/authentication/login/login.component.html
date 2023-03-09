@@ -1,0 +1,25 @@
+<body>
+    <div class="container d-flex justify-content-center" style="margin-top: 30px;">
+        <div class="d-flex flex-column justify-content-between">
+            <div class="card mt-5 p-5">
+                <div class="logo mb-3" style="margin-left: 110px;"><img src="../../../assets/images/logo2.jpg" class="rounded-circle" style="height: 200px;">
+                </div>
+                <a class="btn-warning text-dark" style="text-decoration: none; margin-left: 90px; font-size: 18px;" routerLink="/register">Don't have an account? Register!</a>
+            </div>
+            <form [formGroup]="loginForm">
+                <div class="card two bg-white px-5 py-4 mb-3">
+                    <div class="form-group">
+                        <input type="email" class="form-control loginEmail" id="mail" required formControlName="userName">
+                        <label class="form-control-placeholder" style="font-size: 15px;" for="mail">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control loginPassword" id="password" required formControlName="password">
+                        <label class="form-control-placeholder" style="font-size: 15px;" for="password">Password</label>
+                    </div>
+    
+                    <a class="btn btn-warning btn-block btn-lg mt-1 mb-2 text-light" routerLink="/sidenav" (click)="authenticateUser()"><span style="font-size: 20px; ">Login<i class="fas fa-long-arrow-alt-right ml-2"></i></span></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

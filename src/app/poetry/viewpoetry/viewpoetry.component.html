@@ -1,0 +1,28 @@
+<div>
+    <img src="../../../assets/images/homePage5.jpg" alt="" style="height: 350px; width: 1400px; margin-left: 140px;" class="align-items-center">
+</div>
+
+<div class="row justify-content-center mt-4">
+    {{poemForm.value|json}}
+    <form [formGroup]="poemForm">
+        <label for="language" style="font-size: 20px; width: 200px;" class="fw-bolder col-md-1">Select Language:</label>
+        <select name="language" id="language" class="language fw-bolder form-control col-md-1" style="width: 120px; font-size: 20px;" formControlName="language">
+            <option value="Hindi">
+                Hindi
+            </option>
+            <option value="English">
+                English
+            </option>
+            <option value="Marathi">
+                Marathi
+            </option>
+        </select>
+        <button class="btn btn-warning submit align-items-center col-md-1 ms-2" (click)="getPoem()">Submit</button>
+    </form>
+</div>
+
+<div *ngFor="let p of poems" class="mt-5 row justify-content-center">
+
+    <div [innerHTML]="p.Poem" class="mt-4 col-md-3 text-center" style="font-size: 20px;"></div>
+
+</div>
