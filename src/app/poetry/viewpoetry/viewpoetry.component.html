@@ -3,8 +3,7 @@
 </div>
 
 <div class="row justify-content-center mt-4">
-    {{poemForm.value|json}}
-    <form [formGroup]="poemForm">
+    <form [formGroup]="poemForm" class="row justify-content-center">
         <label for="language" style="font-size: 20px; width: 200px;" class="fw-bolder col-md-1">Select Language:</label>
         <select name="language" id="language" class="language fw-bolder form-control col-md-1" style="width: 120px; font-size: 20px;" formControlName="language">
             <option value="Hindi">
@@ -21,8 +20,29 @@
     </form>
 </div>
 
-<div *ngFor="let p of poems" class="mt-5 row justify-content-center">
+<div *ngFor="let p of poems" class="mt-5 row" id="htmlData">
 
     <div [innerHTML]="p.Poem" class="mt-4 col-md-3 text-center" style="font-size: 20px;"></div>
+    <div class="col-md-1">
+    
+        <video id="my_video_1" [hidden]="downloadClicked" *ngIf="this.poemForm.get('language')?.value=='Hindi'">
+            <source src="../../../assets/images/hindipoem.mp4" type='video/mp4' />
+        </video>
+
+        <video id="my_video_1" [hidden]="downloadClicked" *ngIf="this.poemForm.get('language')?.value=='English'">
+            <source src="../../../assets/images/hindipoem.mp4" type='video/mp4' />
+        </video>
+
+        <video id="my_video_1" [hidden]="downloadClicked" *ngIf="this.poemForm.get('language')?.value=='Marathi'">
+            <source src="../../../assets/images/hindipoem.mp4" type='video/mp4' />
+        </video>
+
+        <div class="row col-md-12">
+            <button (click)="openPDF()" class="btn btn-warning submit align-items-center col-md-12" [hidden]="downloadClicked">
+                Download PDF
+            </button>
+            <button (click)="playPause()" class="btn btn-warning submit align-items-center col-md-12"  [hidden]="downloadClicked">Play/Pause</button>
+        </div>
+    </div>
 
 </div>
